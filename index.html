@@ -1,121 +1,103 @@
 <index.html>
-<html lang="pt">
+<html lang="pt-MZ">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Santos Hilário Tsope</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      background: #f4f4f9;
-      color: #333;
-    }
-    header {
-      background: #004080;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #004080;
-      margin-top: 20px;
-    }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    ul li {
-      background: #fff;
-      margin: 8px 0;
-      padding: 10px;
-      border-radius: 5px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #004080;
-      color: #fff;
-      margin-top: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Santos Hilário Tsope – Técnico em Manutenção Eléctrica</title>
+<meta name="description" content="Portfolio de Santos Hilário Tsope, técnico em manutenção elétrica e eletricista industrial, com experiência em instalações residenciais, comerciais e industriais.">
+<style>
+/* Reset básico */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* Tipografia e cores */
+body { font-family: Arial, sans-serif; background:#f8f8f8; color:#333; line-height:1.6; }
+h1, h2 { color:#0d47a1; }
+a { text-decoration:none; }
+
+/* Header */
+header { background:#0d47a1; color:white; padding:30px 20px; text-align:center; }
+header h1 { font-size:2em; margin-bottom:5px; }
+header p { font-size:1.1em; }
+
+/* Container principal */
+main.container { max-width:900px; margin:20px auto; padding:0 20px; }
+
+/* Botões de contato */
+.buttons { display:flex; flex-wrap:wrap; justify-content:center; margin-bottom:30px; gap:10px; }
+.buttons a { flex:1 1 calc(50% - 10px); }
+.buttons button { width:100%; padding:12px; border:none; border-radius:5px; cursor:pointer; font-size:1em; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition:0.3s; }
+.buttons button:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+.btn-linkedin { background:#0077b5; color:white; }
+.btn-whatsapp { background:#25D366; color:white; }
+.btn-email { background:#EA4335; color:white; }
+.btn-cv { background:#6c757d; color:white; }
+
+/* Seções */
+section { margin-bottom:40px; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+section h2 { margin-bottom:15px; }
+ul { padding-left:20px; }
+
+/* Footer */
+footer { background:#0d47a1; color:white; text-align:center; padding:20px 10px; font-size:0.9em; }
+
+/* Responsividade */
+@media(max-width:600px){
+  .buttons a { flex:1 1 100%; }
+  main.container { padding:0 10px; }
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Santos Hilário Tsope</h1>
-    <p>Técnico em Manutenção Eléctrica | Electricista Industrial</p>
-    <nav>
-      <a href="#perfil">Perfil</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#formacao">Formação</a>
-      <a href="#competencias">Competências</a>
-      <a href="#contactos">Contactos</a>
-    </nav>
-  </header>
 
-  <section id="perfil">
-    <h2>Perfil Profissional</h2>
-    <p>Técnico em Manutenção Eléctrica Industrial com experiência em redes BT, instalações eléctricas e manutenção preventiva e correctiva. Conhecimentos em automação industrial, motores eléctricos, VFS, CLP, fiação trifásica, sistemas de controlo e normas de segurança.</p>
-  </section>
+<header>
+<h1>Santos Hilário Tsope</h1>
+<p>Técnico em Manutenção Eléctrica · Electricista Industrial</p>
+</header>
 
-  <section id="experiencia">
-    <h2>Experiência Profissional</h2>
-    <ul>
-      <li><strong>Técnico Estagiário</strong> - Maguezi S.A – EDM (Infulene)<br>Out 2022 - Dez 2022</li>
-      <li><strong>Técnico Estagiário</strong> – EDM (Matola)<br>Maio 2022 - Ago 2022</li>
-      <li><strong>Técnico em Manutenção Eléctrica</strong> - Projectos Informais<br>2021 - Actualidade</li>
-    </ul>
-  </section>
+<main class="container">
 
-  <section id="formacao">
-    <h2>Formação</h2>
-    <ul>
-      <li><strong>CV5 - Técnico Médio em Manutenção Industrial Eléctrica</strong><br>Instituto Industrial e de Computação Armando Emílio Guebuza (2025)</li>
-      <li><strong>Curso Básico de Electricidade Industrial</strong><br>Centro de Formação Profissional Salesianos – Matola (2021)</li>
-      <li><strong>Curso Básico de Informática</strong><br>Centro WEKE UP – Matola (2020)</li>
-    </ul>
-  </section>
+<div class="buttons">
+<a href="https://www.linkedin.com/in/santoseletricista9" target="_blank" rel="noopener noreferrer"><button class="btn-linkedin" role="button">LinkedIn</button></a>
+<a href="https://wa.me/258843281021" target="_blank" rel="noopener noreferrer"><button class="btn-whatsapp" role="button">WhatsApp</button></a>
+<a href="mailto:santostsope23@gmail.com"><button class="btn-email" role="button">E-mail</button></a>
+<a href="CV_Santos_Hilario.pdf" download><button class="btn-cv" role="button">Baixar CV</button></a>
+</div>
 
-  <section id="competencias">
-    <h2>Competências Técnicas</h2>
-    <ul>
-      <li>Instalação e manutenção de quadros eléctricos</li>
-      <li>Dimensionamento e substituição de transformadores MT/BT</li>
-      <li>Diagnóstico de falhas em motores e sistemas trifásicos</li>
-      <li>Experiência em VFS e CLP</li>
-      <li>Manutenção preventiva e correctiva</li>
-    </ul>
-  </section>
+<section>
+<h2>Sobre</h2>
+<p>Profissional com experiência em instalações elétricas e manutenção industrial, atuando em redes BT e automação básica. Capaz de diagnosticar e resolver avarias, interpretar esquemas e aplicar normas de segurança. Atualmente concluindo o curso CV5 (Manutenção Industrial Eléctrica) no IICAEG.</p>
+</section>
 
-  <section id="contactos">
-    <h2>Contactos</h2>
-    <p><strong>Telefone:</strong> +258 850 387 341 / +258 879 387 341</p>
-    <p><strong>Email:</strong> santostsope23@gmail.com</p>
-    <p><strong>Localização:</strong> Boane, Moçambique</p>
-  </section>
+<section>
+<h2>Experiência</h2>
+<ul>
+<li><strong>Autónomo (Jan 2021 – Atual)</strong>: Instalações trifásicas residenciais/comerciais, reparação de motores e VFD, automação básica.</li>
+<li><strong>Maguezi S.A – EDM (ASC Infulene) (Out 2022 – Dez 2022)</strong>: Inspeção e cadastro de instalações, montagem de contadores, execução de baixadas aéreas e subterrâneas.</li>
+<li><strong>EDM (ASC Matola) (Mai 2022 – Ago 2022)</strong>: Diagnóstico e reparação em redes MT/BT, substituição de pára-raios e cabos, suporte em transformadores e quadros elétricos.</li>
+</ul>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Santos Hilário Tsope</p>
-  </footer>
+<section>
+<h2>Formação</h2>
+<ul>
+<li>Técnico Médio em Manutenção Industrial Eléctrica (CV5) – IICAEG – Em curso (2025)</li>
+<li>Técnico Básico em Electricidade Industrial – CFP Salesianos (2021)</li>
+<li>Ensino Médio Geral – Escola Secundária Josina Machel (2016)</li>
+</ul>
+</section>
+
+<section>
+<h2>Créditos / Contato</h2>
+<p>Autor e responsável técnico: <strong>Santos Hilário Tsope – Electricista Profissional</strong></p>
+<p>Contatos: +258 87 938 7341 | +258 85 038 7341 | santoseletricista9@gmail.com</p>
+<p>Conteúdo elaborado com base em boas práticas de segurança elétrica e normas técnicas aplicáveis.</p>
+</section>
+
+</main>
+
+<footer>
+© 2025 Santos Hilário Tsope · Todos os direitos reservados
+</footer>
+
 </body>
 </html>
