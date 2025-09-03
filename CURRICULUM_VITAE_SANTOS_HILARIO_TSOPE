@@ -1,1 +1,111 @@
+import { useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, Linkedin, MapPin, Wrench, Cpu, Zap, Shield, Settings, FileDown } from "lucide-react";
+import html2pdf from "html2pdf.js";
+
+const skills = [
+  "Instalações BT/MT",
+  "Quadros elétricos",
+  "Motores elétricos",
+  "VFD / VFS",
+  "CLP básico",
+  "Leitura de esquemas",
+  "Diagnóstico de avarias",
+  "Manutenção preventiva",
+  "Segurança elétrica",
+];
+
+const services = [
+  { icon: <Wrench className="w-5 h-5" />, title: "Instalações e Manutenção", desc: "Projetos residenciais, comerciais e industriais: montagem, reparo e upgrades." },
+  { icon: <Cpu className="w-5 h-5" />, title: "Automação Básica", desc: "CLP, sensores, contactores, comando e proteção." },
+  { icon: <Zap className="w-5 h-5" />, title: "Motores e VFD", desc: "Instalação, parametrização e troubleshooting." },
+  { icon: <Shield className="w-5 h-5" />, title: "Conformidade e Segurança", desc: "Boas práticas, EPIs e normas aplicáveis." },
+  { icon: <Settings className="w-5 h-5" />, title: "Planos de Manutenção", desc: "Preventiva e corretiva orientada a resultados." },
+];
+
+const experience = [
+  {
+    role: "Técnico Estagiário",
+    company: "EDM (ASC Matola)",
+    period: "Mai 2022 – Ago 2022",
+    bullets: [
+      "Diagnóstico e reparação em redes MT/BT",
+      "Substituição de pára-raios, cabos e Drop-Outs",
+      "Suporte em transformadores e quadros elétricos",
+    ],
+  },
+  {
+    role: "Técnico Estagiário",
+    company: "Maguezi S.A – EDM (ASC Infulene)",
+    period: "Out 2022 – Dez 2022",
+    bullets: [
+      "Inspeção e cadastro de instalações",
+      "Montagem, substituição e instalação de contadores",
+      "Execução de baixadas aéreas e subterrâneas",
+    ],
+  },
+  {
+    role: "Técnico de Manutenção Elétrica (Projetos)",
+    company: "Autónomo",
+    period: "Jan 2021 – Atual",
+    bullets: [
+      "Instalações trifásicas residenciais/comerciais",
+      "Reparação de motores e VFD",
+      "Automação básica: CLP, sensores, contactores",
+    ],
+  },
+];
+
+const education = [
+  {
+    course: "Técnico Médio em Manutenção Industrial Eléctrica (CV5)",
+    school: "IICAEG – Matola Rio",
+    period: "Em curso (2025)",
+  },
+  {
+    course: "Técnico Básico em Electricidade Industrial",
+    school: "CFP Salesianos – Matola",
+    period: "2021",
+  },
+  {
+    course: "Ensino Médio Geral",
+    school: "Escola Secundária Josina Machel",
+    period: "2016",
+  },
+];
+
+export default function SiteSantos() {
+  const cvRef = useRef();
+
+  const downloadCV = () => {
+    if (cvRef.current) {
+      html2pdf()
+        .set({ margin: 0.5, filename: "CV_Santos_Hilario_Tsope.pdf", html2canvas: { scale: 2 } })
+        .from(cvRef.current)
+        .save();
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Navbar / Hero */}
+      <header className="bg-orange-700 text-white">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold">Santos Hilário Tsope</h1>
+              <p className="text-lg opacity-90">Técnico em Manutenção Eléctrica · Electricista Industrial</p>
+              <div className="mt-3 flex flex-wrap items-center gap-3 opacity-95">
+                <span className="flex items-center gap-2"><MapPin className="w-4 h-4"/>Boane, Moçambique</span>
+                <a href="tel:+258850387341" className="underline flex items-center gap-2"><Phone className="w-4 h-4"/>+258 850 387 341</a>
+                <a href="mailto:santostsope23@gmail.com" className="underline flex items-center gap-2"><Mail className="w-4 h-4"/>santostsope23@gmail.com</a>
+                <a href="https://www.linkedin.com/in/santoseletricista9" className="underline flex items-center gap-2"><Linkedin className="w-4 h-4"/>LinkedIn</a>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Button className="rounded-2xl shadow" onClick={downloadCV}>
+                Baixar CV (PDF)
+              </Button>
+              <Button variant="outline" className="bg-
 
