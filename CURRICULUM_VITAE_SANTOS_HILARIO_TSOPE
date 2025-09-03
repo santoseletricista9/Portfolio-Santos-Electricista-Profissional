@@ -1,8 +1,6 @@
-import { useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, Linkedin, MapPin, Wrench, Cpu, Zap, Shield, Settings, FileDown } from "lucide-react";
-import html2pdf from "html2pdf.js";
 
 const skills = [
   "Instalações BT/MT",
@@ -76,21 +74,10 @@ const education = [
 ];
 
 export default function SiteSantos() {
-  const cvRef = useRef();
-
-  const downloadCV = () => {
-    if (cvRef.current) {
-      html2pdf()
-        .set({ margin: 0.5, filename: "CV_Santos_Hilario_Tsope.pdf", html2canvas: { scale: 2 } })
-        .from(cvRef.current)
-        .save();
-    }
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800">
       {/* Navbar / Hero */}
-      <header className="bg-orange-700 text-white">
+      <header className="bg-blue-900 text-white">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
@@ -100,12 +87,130 @@ export default function SiteSantos() {
                 <span className="flex items-center gap-2"><MapPin className="w-4 h-4"/>Boane, Moçambique</span>
                 <a href="tel:+258850387341" className="underline flex items-center gap-2"><Phone className="w-4 h-4"/>+258 850 387 341</a>
                 <a href="mailto:santostsope23@gmail.com" className="underline flex items-center gap-2"><Mail className="w-4 h-4"/>santostsope23@gmail.com</a>
-                <a href="https://www.linkedin.com/in/santoseletricista9" className="underline flex items-center gap-2"><Linkedin className="w-4 h-4"/>LinkedIn</a>
+                <a href="https://www.linkedin.com" className="underline flex items-center gap-2"><Linkedin className="w-4 h-4"/>LinkedIn</a>
               </div>
             </div>
             <div className="flex gap-3">
-              <Button className="rounded-2xl shadow" onClick={downloadCV}>
-                Baixar CV (PDF)
+              <Button className="rounded-2xl shadow" asChild>
+                <a href="#contacto">Contactar</a>
               </Button>
-              <Button variant="outline" className="bg-
+              <Button variant="outline" className="bg-white/10 text-white border-white/40 rounded-2xl" asChild>
+                <a href="#cv"><FileDown className="w-4 h-4 mr-2"/>Ver CV Resumido</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
 
+      {/* Sobre */}
+      <section className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
+        <Card className="md:col-span-2 rounded-2xl shadow-lg">
+          <CardContent className="p-6">
+            <h2 className="text-2xl font-semibold mb-4">Sobre</h2>
+            <p>
+              Profissional com experiência em instalações elétricas e manutenção industrial, atuando em redes BT e em automação básica. Capaz de diagnosticar e resolver avarias, interpretar esquemas e aplicar normas de segurança. Atualmente a concluir o curso CV5 (Manutenção Industrial Eléctrica) no IICAEG.
+            </p>
+          </CardContent>
+        </Card>
+        <Card className="rounded-2xl shadow-lg">
+          <CardContent className="p-6">
+            <h3 className="text-xl font-semibold mb-3">Competências-Chave</h3>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((s) => (
+                <span key={s} className="px-3 py-1 rounded-full bg-blue-100 text-blue-900 text-sm">
+                  {s}
+                </span>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Serviços */}
+      <section className="max-w-6xl mx-auto px-6 py-4">
+        <h2 className="text-2xl font-semibold mb-4">Serviços</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {services.map((srv) => (
+            <Card key={srv.title} className="rounded-2xl shadow">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-2 mb-2">{srv.icon}<h3 className="font-semibold">{srv.title}</h3></div>
+                <p className="text-sm opacity-80">{srv.desc}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Experiência */}
+      <section id="cv" className="max-w-6xl mx-auto px-6 py-8">
+        <h2 className="text-2xl font-semibold mb-4">Experiência</h2>
+        <div className="grid gap-4">
+          {experience.map((exp, i) => (
+            <Card key={i} className="rounded-2xl shadow">
+              <CardContent className="p-6">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <h3 className="text-lg font-semibold">{exp.role} · {exp.company}</h3>
+                  </div>
+                  <span className="text-sm opacity-70">{exp.period}</span>
+                </div>
+                <ul className="list-disc list-inside mt-3 space-y-1 text-sm">
+                  {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Formação */}
+      <section className="max-w-6xl mx-auto px-6 py-4">
+        <h2 className="text-2xl font-semibold mb-4">Formação</h2>
+        <div className="grid md:grid-cols-3 gap-4">
+          {education.map((ed, i) => (
+            <Card key={i} className="rounded-2xl shadow">
+              <CardContent className="p-6">
+                <h3 className="font-semibold">{ed.course}</h3>
+                <p className="opacity-80 text-sm">{ed.school}</p>
+                <p className="opacity-70 text-xs mt-1">{ed.period}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Contacto */}
+      <section id="contacto" className="bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <h2 className="text-2xl font-semibold mb-4">Contacto</h2>
+          <div className="flex flex-col md:flex-row gap-4">
+            <Card className="rounded-2xl shadow w-full md:w-1/2">
+              <CardContent className="p-6 space-y-3">
+                <a className="flex items-center gap-3 underline" href="mailto:santostsope23@gmail.com"><Mail className="w-5 h-5"/>santostsope23@gmail.com</a>
+                <a className="flex items-center gap-3 underline" href="tel:+258850387341"><Phone className="w-5 h-5"/>+258 850 387 341</a>
+                <a className="flex items-center gap-3 underline" href="https://www.linkedin.com"><Linkedin className="w-5 h-5"/>LinkedIn</a>
+                <p className="flex items-center gap-3"><MapPin className="w-5 h-5"/>Boane, Moçambique</p>
+              </CardContent>
+            </Card>
+            <Card className="rounded-2xl shadow w-full md:w-1/2">
+              <CardContent className="p-6 space-y-3">
+                <h3 className="font-semibold mb-1">Mensagem rápida</h3>
+                <form className="space-y-3" onSubmit={(e)=>e.preventDefault()}>
+                  <input className="w-full border rounded-xl p-3" placeholder="Seu nome" />
+                  <input className="w-full border rounded-xl p-3" placeholder="Seu e-mail" />
+                  <textarea className="w-full border rounded-xl p-3 h-28" placeholder="Escreva sua mensagem" />
+                  <Button className="rounded-2xl">Enviar</Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-blue-900 text-white text-center p-6 mt-8">
+        <p>© {new Date().getFullYear()} Santos Hilário Tsope · Todos os direitos reservados</p>
+      </footer>
+    </div>
+  );
+}
