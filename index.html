@@ -1,103 +1,219 @@
-<index.html>
-<html lang="pt-MZ">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio Santos Hilário Tsope – Técnico em Manutenção Eléctrica</title>
-<meta name="description" content="Portfolio de Santos Hilário Tsope, técnico em manutenção elétrica e eletricista industrial, com experiência em instalações residenciais, comerciais e industriais.">
-<style>
-/* Reset básico */
-* { margin:0; padding:0; box-sizing:border-box; }
+// pages/index.js
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Phone, Linkedin, MapPin, Wrench, Cpu, Zap, Shield, Settings, FileDown } from "lucide-react";
 
-/* Tipografia e cores */
-body { font-family: Arial, sans-serif; background:#f8f8f8; color:#333; line-height:1.6; }
-h1, h2 { color:#0d47a1; }
-a { text-decoration:none; }
+const skills = [
+  "Instalações BT/MT",
+  "Quadros elétricos",
+  "Motores elétricos",
+  "VFD / VFS",
+  "CLP básico",
+  "Leitura de esquemas",
+  "Diagnóstico de avarias",
+  "Manutenção preventiva",
+  "Segurança elétrica",
+];
 
-/* Header */
-header { background:#0d47a1; color:white; padding:30px 20px; text-align:center; }
-header h1 { font-size:2em; margin-bottom:5px; }
-header p { font-size:1.1em; }
+const services = [
+  { icon: <Wrench className="w-5 h-5 text-orange-600"/>, title: "Instalações e Manutenção", desc: "Projetos residenciais, comerciais e industriais: montagem, reparo e upgrades." },
+  { icon: <Cpu className="w-5 h-5 text-orange-600"/>, title: "Automação Básica", desc: "CLP, sensores, contactores, comando e proteção." },
+  { icon: <Zap className="w-5 h-5 text-orange-600"/>, title: "Motores e VFD", desc: "Instalação, parametrização e troubleshooting." },
+  { icon: <Shield className="w-5 h-5 text-orange-600"/>, title: "Conformidade e Segurança", desc: "Boas práticas, EPIs e normas aplicáveis." },
+  { icon: <Settings className="w-5 h-5 text-orange-600"/>, title: "Planos de Manutenção", desc: "Preventiva e corretiva orientada a resultados." },
+];
 
-/* Container principal */
-main.container { max-width:900px; margin:20px auto; padding:0 20px; }
+const experience = [
+  {
+    role: "Técnico Estagiário",
+    company: "EDM (ASC Matola)",
+    period: "Mai 2022 – Ago 2022",
+    bullets: [
+      "Diagnóstico e reparação em redes MT/BT",
+      "Substituição de pára-raios, cabos e Drop-Outs",
+      "Suporte em transformadores e quadros elétricos",
+    ],
+  },
+  {
+    role: "Técnico Estagiário",
+    company: "Maguezi S.A – EDM (ASC Infulene)",
+    period: "Out 2022 – Dez 2022",
+    bullets: [
+      "Inspeção e cadastro de instalações",
+      "Montagem, substituição e instalação de contadores",
+      "Execução de baixadas aéreas e subterrâneas",
+    ],
+  },
+  {
+    role: "Técnico de Manutenção Elétrica (Projetos)",
+    company: "Autónomo",
+    period: "Jan 2021 – Atual",
+    bullets: [
+      "Instalações trifásicas residenciais/comerciais",
+      "Reparação de motores e VFD",
+      "Automação básica: CLP, sensores, contactores",
+    ],
+  },
+];
 
-/* Botões de contato */
-.buttons { display:flex; flex-wrap:wrap; justify-content:center; margin-bottom:30px; gap:10px; }
-.buttons a { flex:1 1 calc(50% - 10px); }
-.buttons button { width:100%; padding:12px; border:none; border-radius:5px; cursor:pointer; font-size:1em; box-shadow: 0 2px 5px rgba(0,0,0,0.2); transition:0.3s; }
-.buttons button:hover { box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
-.btn-linkedin { background:#0077b5; color:white; }
-.btn-whatsapp { background:#25D366; color:white; }
-.btn-email { background:#EA4335; color:white; }
-.btn-cv { background:#6c757d; color:white; }
+const education = [
+  {
+    course: "Técnico Médio em Manutenção Industrial Eléctrica (CV5)",
+    school: "IICAEG – Matola Rio",
+    period: "Em curso (2025)",
+  },
+  {
+    course: "Técnico Básico em Electricidade Industrial",
+    school: "CFP Salesianos – Matola",
+    period: "2021",
+  },
+  {
+    course: "Ensino Médio Geral",
+    school: "Escola Secundária Josina Machel",
+    period: "2016",
+  },
+];
 
-/* Seções */
-section { margin-bottom:40px; padding:20px; background:white; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-section h2 { margin-bottom:15px; }
-ul { padding-left:20px; }
+export default function SiteSantos() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Navbar / Hero */}
+      <header className="bg-orange-600 text-white">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold">Santos Hilário Tsope</h1>
+              <p className="text-lg opacity-90">Técnico em Manutenção Eléctrica · Electricista Industrial</p>
+              <div className="mt-3 flex flex-wrap items-center gap-3 opacity-95">
+                <span className="flex items-center gap-2"><MapPin className="w-4 h-4"/>Boane, Moçambique</span>
+                <a href="tel:+258850387341" className="underline flex items-center gap-2"><Phone className="w-4 h-4"/>+258 850 387 341</a>
+                <a href="mailto:santostsope23@gmail.com" className="underline flex items-center gap-2"><Mail className="w-4 h-4"/>santostsope23@gmail.com</a>
+                <a href="https://www.linkedin.com" className="underline flex items-center gap-2"><Linkedin className="w-4 h-4"/>LinkedIn</a>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <Button className="rounded-2xl shadow bg-white text-orange-600 hover:bg-white/90" asChild>
+                <a href="#contacto">Contactar</a>
+              </Button>
+              <Button variant="outline" className="border-white/40 rounded-2xl" asChild>
+                <a href="#cv"><FileDown className="w-4 h-4 mr-2"/>Ver CV Resumido</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
 
-/* Footer */
-footer { background:#0d47a1; color:white; text-align:center; padding:20px 10px; font-size:0.9em; }
+      {/* Sobre */}
+      <main>
+        <section className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-6">
+          <Card className="md:col-span-2 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold mb-4 text-orange-800">Sobre</h2>
+              <p>
+                Profissional com experiência em instalações elétricas e manutenção industrial, atuando em redes BT e em automação básica. Capaz de diagnosticar e resolver avarias, interpretar esquemas e aplicar normas de segurança. Atualmente a concluir o curso CV5 (Manutenção Industrial Eléctrica) no IICAEG.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-3 text-orange-800">Competências-Chave</h3>
+              <div className="flex flex-wrap gap-2">
+                {skills.map((s) => (
+                  <span key={s} className="px-3 py-1 rounded-full bg-orange-100 text-orange-900 text-sm">
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
-/* Responsividade */
-@media(max-width:600px){
-  .buttons a { flex:1 1 100%; }
-  main.container { padding:0 10px; }
+        {/* Serviços */}
+        <section className="max-w-6xl mx-auto px-6 py-4">
+          <h2 className="text-2xl font-semibold mb-4 text-orange-800">Serviços</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {services.map((srv) => (
+              <Card key={srv.title} className="rounded-2xl shadow hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-2 mb-2">{srv.icon}<h3 className="font-semibold">{srv.title}</h3></div>
+                  <p className="text-sm opacity-80">{srv.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Experiência */}
+        <section id="cv" className="max-w-6xl mx-auto px-6 py-8">
+          <h2 className="text-2xl font-semibold mb-4 text-orange-800">Experiência</h2>
+          <div className="grid gap-4">
+            {experience.map((exp, i) => (
+              <Card key={i} className="rounded-2xl shadow hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <div>
+                      <h3 className="text-lg font-semibold">{exp.role} · {exp.company}</h3>
+                    </div>
+                    <span className="text-sm opacity-70">{exp.period}</span>
+                  </div>
+                  <ul className="list-disc list-inside mt-3 space-y-1 text-sm">
+                    {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Formação */}
+        <section className="max-w-6xl mx-auto px-6 py-4">
+          <h2 className="text-2xl font-semibold mb-4 text-orange-800">Formação</h2>
+          <div className="grid md:grid-cols-3 gap-4">
+            {education.map((ed, i) => (
+              <Card key={i} className="rounded-2xl shadow hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold">{ed.course}</h3>
+                  <p className="opacity-80 text-sm">{ed.school}</p>
+                  <p className="opacity-70 text-xs mt-1">{ed.period}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Contacto */}
+        <section id="contacto" className="bg-gray-100">
+          <div className="max-w-6xl mx-auto px-6 py-10">
+            <h2 className="text-2xl font-semibold mb-4 text-orange-800">Contacto</h2>
+            <div className="flex flex-col md:flex-row gap-4">
+              <Card className="rounded-2xl shadow w-full md:w-1/2 hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6 space-y-3">
+                  <a className="flex items-center gap-3 underline" href="mailto:santostsope23@gmail.com"><Mail className="w-5 h-5"/>santostsope23@gmail.com</a>
+                  <a className="flex items-center gap-3 underline" href="tel:+258850387341"><Phone className="w-5 h-5"/>+258 850 387 341</a>
+                  <a className="flex items-center gap-3 underline" href="https://www.linkedin.com"><Linkedin className="w-5 h-5"/>LinkedIn</a>
+                  <p className="flex items-center gap-3"><MapPin className="w-5 h-5"/>Boane, Moçambique</p>
+                </CardContent>
+              </Card>
+              <Card className="rounded-2xl shadow w-full md:w-1/2 hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-6 space-y-3">
+                  <h3 className="font-semibold mb-1">Mensagem rápida</h3>
+                  <form className="space-y-3" onSubmit={(e)=>e.preventDefault()}>
+                    <input className="w-full border border-gray-300 rounded-xl p-3 focus:border-orange-600 focus:ring-orange-200" placeholder="Seu nome" />
+                    <input className="w-full border border-gray-300 rounded-xl p-3 focus:border-orange-600 focus:ring-orange-200" placeholder="Seu e-mail" />
+                    <textarea className="w-full border border-gray-300 rounded-xl p-3 h-28 focus:border-orange-600 focus:ring-orange-200" placeholder="Escreva sua mensagem" />
+                    <Button className="rounded-2xl bg-orange-600 hover:bg-orange-700 text-white">Enviar</Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-orange-600 text-white text-center p-6 mt-8">
+        <p>© {new Date().getFullYear()} Santos Hilário Tsope · Todos os direitos reservados</p>
+      </footer>
+    </div>
+  );
 }
-</style>
-</head>
-<body>
-
-<header>
-<h1>Santos Hilário Tsope</h1>
-<p>Técnico em Manutenção Eléctrica · Electricista Industrial</p>
-</header>
-
-<main class="container">
-
-<div class="buttons">
-<a href="https://www.linkedin.com/in/santoseletricista9" target="_blank" rel="noopener noreferrer"><button class="btn-linkedin" role="button">LinkedIn</button></a>
-<a href="https://wa.me/258843281021" target="_blank" rel="noopener noreferrer"><button class="btn-whatsapp" role="button">WhatsApp</button></a>
-<a href="mailto:santostsope23@gmail.com"><button class="btn-email" role="button">E-mail</button></a>
-<a href="CV_Santos_Hilario.pdf" download><button class="btn-cv" role="button">Baixar CV</button></a>
-</div>
-
-<section>
-<h2>Sobre</h2>
-<p>Profissional com experiência em instalações elétricas e manutenção industrial, atuando em redes BT e automação básica. Capaz de diagnosticar e resolver avarias, interpretar esquemas e aplicar normas de segurança. Atualmente concluindo o curso CV5 (Manutenção Industrial Eléctrica) no IICAEG.</p>
-</section>
-
-<section>
-<h2>Experiência</h2>
-<ul>
-<li><strong>Autónomo (Jan 2021 – Atual)</strong>: Instalações trifásicas residenciais/comerciais, reparação de motores e VFD, automação básica.</li>
-<li><strong>Maguezi S.A – EDM (ASC Infulene) (Out 2022 – Dez 2022)</strong>: Inspeção e cadastro de instalações, montagem de contadores, execução de baixadas aéreas e subterrâneas.</li>
-<li><strong>EDM (ASC Matola) (Mai 2022 – Ago 2022)</strong>: Diagnóstico e reparação em redes MT/BT, substituição de pára-raios e cabos, suporte em transformadores e quadros elétricos.</li>
-</ul>
-</section>
-
-<section>
-<h2>Formação</h2>
-<ul>
-<li>Técnico Médio em Manutenção Industrial Eléctrica (CV5) – IICAEG – Em curso (2025)</li>
-<li>Técnico Básico em Electricidade Industrial – CFP Salesianos (2021)</li>
-<li>Ensino Médio Geral – Escola Secundária Josina Machel (2016)</li>
-</ul>
-</section>
-
-<section>
-<h2>Créditos / Contato</h2>
-<p>Autor e responsável técnico: <strong>Santos Hilário Tsope – Electricista Profissional</strong></p>
-<p>Contatos: +258 87 938 7341 | +258 85 038 7341 | santoseletricista9@gmail.com</p>
-<p>Conteúdo elaborado com base em boas práticas de segurança elétrica e normas técnicas aplicáveis.</p>
-</section>
-
-</main>
-
-<footer>
-© 2025 Santos Hilário Tsope · Todos os direitos reservados
-</footer>
-
-</body>
-</html>
